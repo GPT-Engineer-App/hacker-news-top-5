@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   const filteredStories = stories.filter(story => 
-    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+    story.title && story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
