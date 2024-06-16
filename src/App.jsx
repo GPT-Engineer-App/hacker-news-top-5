@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 function App() {
   const [stories, setStories] = useState([]);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStories, setFilteredStories] = useState([]);
 
@@ -30,8 +32,8 @@ function App() {
   }, [searchTerm, stories]);
 
   return (
-    <div className="min-h-screen bg-base-200 text-base-content">
-      <div className="container mx-auto p-4">
+    <div className={`min-h-screen bg-base-200 text-base-content ${isMobile ? 'p-2' : 'p-4'}`}>
+      <div className="container mx-auto">
         <h1 className="text-3xl font-bold mb-4">Top 5 Hacker News Stories</h1>
         <input 
           type="text" 
