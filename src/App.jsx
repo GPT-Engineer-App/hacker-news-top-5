@@ -42,10 +42,10 @@ function App() {
         />
         <ul className="space-y-4">
           {filteredStories.map(story => (
-            <li key={story.id} className="p-4 bg-base-100 rounded-lg shadow">
-              <h2 className="text-xl font-semibold">{story.title}</h2>
-              <p className="text-sm text-gray-500">Upvotes: {story.score}</p>
-              <a href={story.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Read more</a>
+            <li key={story.id} className="story-item p-4 bg-base-100 rounded-lg shadow">
+              <h2 className="story-title text-xl font-semibold">{story.title}</h2>
+              <p className="story-upvotes text-sm text-gray-500">Upvotes: {story.score}</p>
+              <a href={story.url} target="_blank" rel="noopener noreferrer" className="story-link text-blue-500 hover:underline">Read more</a>
             </li>
           ))}
         </ul>
