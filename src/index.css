@@ -5,7 +5,7 @@
 /* Add responsive design utilities */
 @media (max-width: 640px) {
   .container {
-    padding: 1rem;
+    padding: 2rem;
   }
 
   h1 {
