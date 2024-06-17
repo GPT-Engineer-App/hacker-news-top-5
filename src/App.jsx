@@ -31,8 +31,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-base-200 text-base-content">
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Top 5 Hacker News Stories</h1>
+      <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+        <h1 className="text-3xl font-bold mb-4 text-center sm:text-left">Top 5 Hacker News Stories</h1>
         <input 
           type="text" 
           placeholder="Search stories..." 
@@ -42,10 +42,12 @@ function App() {
         />
         <ul className="space-y-4">
           {filteredStories.map(story => (
-            <li key={story.id} className="story-item p-4 bg-base-100 rounded-lg shadow">
-              <h2 className="story-title text-xl font-semibold">{story.title}</h2>
-              <p className="story-upvotes text-sm text-gray-500">Upvotes: {story.score}</p>
-              <a href={story.url} target="_blank" rel="noopener noreferrer" className="story-link text-blue-500 hover:underline">Read more</a>
+            <li key={story.id} className="story-item p-4 bg-base-100 rounded-lg shadow sm:flex sm:items-center sm:justify-between">
+              <div>
+                <h2 className="story-title text-xl font-semibold">{story.title}</h2>
+                <p className="story-upvotes text-sm text-gray-500">Upvotes: {story.score}</p>
+              </div>
+              <a href={story.url} target="_blank" rel="noopener noreferrer" className="story-link text-blue-500 hover:underline mt-2 sm:mt-0 sm:ml-4">Read more</a>
             </li>
           ))}
         </ul>
