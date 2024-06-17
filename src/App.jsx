@@ -4,6 +4,7 @@ function App() {
   const [stories, setStories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStories, setFilteredStories] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
@@ -30,9 +31,17 @@ function App() {
   }, [searchTerm, stories]);
 
   return (
-    <div className="min-h-screen bg-base-200 text-base-content">
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Top 5 Hacker News Stories</h1>
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-base-200 text-base-content'}`}>
+      <div className="container mx-auto p-4 md:p-8">
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-3xl font-bold">Top 5 Hacker News Stories</h1>
+          <button 
+            className="btn btn-secondary"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        </div>
         <input 
           type="text" 
           placeholder="Search stories..." 
